@@ -13,5 +13,5 @@ public interface Dao {
 	public List<BusModel> getBustypes();
 	public List<BusModel> getStation();
 	public List<BusModel> getRegnos();
-	public JSONArray bustypes();
+	public JSONArray bustypes(String type);
 }

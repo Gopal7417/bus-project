@@ -21,10 +21,10 @@
                       url: "some",
                       dataType: 'json',
                       success: function(data){
-                    	   $('#kk').append(data);
+                    	
                     	  $.each(data, function (index, value) {
                     	     
-                    	        $('#regno').append($('<option>').val(value.STAN_ID).text(value.STAN_ID)); 
+                    	        $('#regno').append($('<option>').val(value.BUS_REGNO).text(value.BUS_REGNO)); 
                     	    });
                   }
                });
@@ -92,7 +92,7 @@
                             <td>
                                 <form:label path="regno" class="l" style="font-family: Trebuchet MS;">Bus Type:&nbsp&nbsp&nbsp</form:label><br>
 
-                                <form:select path="regno" id ="sBname"  name="sBname" style="width:250px;">
+                                <form:select path="regno"  style="width:250px;">
                                 </form:select> 
 
 

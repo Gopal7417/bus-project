@@ -89,7 +89,7 @@ public class AdminController {
 		  String tt=request.getParameter("b"); 
 		  System.out.println(tt);
 		  
-		    JSONArray jsonArray = rgDAO.bustypes(); 
+		    JSONArray jsonArray = rgDAO.bustypes(tt); 
 		    response.getWriter().println(jsonArray);
 
 	  }

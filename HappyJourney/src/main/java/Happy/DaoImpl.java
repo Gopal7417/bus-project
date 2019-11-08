@@ -156,10 +156,10 @@ String qry = "select password from admindetails where userid=?";
 		    });
 		    return buses;
 	}
-public JSONArray bustypes() {
+public JSONArray bustypes(String type) {
 		
 		
-		String sql1 = "select bus_regno from buses where bus_bsty_id = 'VLSS'";
+		String sql1 = "select bus_regno from buses where bus_bsty_id ='"+type+"'";
 		
 		
 		JSONArray stations = template.query(sql1,new ResultSetExtractor<JSONArray>(){
