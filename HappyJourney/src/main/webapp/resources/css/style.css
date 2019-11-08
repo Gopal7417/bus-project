@@ -1,0 +1,103 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 14, 2019, 1:12:43 PM
+    Author     : HP
+*/
+
+
+body{
+margin:0;
+background:#f2f2f2f;
+}
+.nav{
+width:100%;
+background:#0CADA0;
+height:43px;
+
+}
+h3{
+padding:15px;
+font-size:20px;
+}
+ul{
+list-style:none;
+padding:0;
+margin:0;
+position:absolute;
+
+}
+ul li{
+float:left;
+
+}
+ul li a{
+width:150px;
+color:white;
+
+display:block;
+text-decoration:none;
+font-size:18px;
+text-align:center;
+padding:10px;
+font-family: Trebuchet MS;
+
+}
+a:hover{
+ border-left: 1px solid white;
+  border-right: 1px solid white;
+}
+ul li ul{
+background:#808080;
+}
+ul li ul li{
+float:none;
+}
+
+ul li ul{
+display:none;
+}
+ul li:hover ul{
+	display:block;
+	
+}
+.b{
+color:white;
+background:#0CADA0;
+}
+.l{
+color:#0CADA0;
+font-size:18px;
+}
+.s{
+size:30px;
+}
+
+select{
+width:150px;
+height:30px;
+padding-left: 10px;
+}
+select option { 
+    line-height: 20px;
+}
+h{
+    
+    text-align: center;
+}
+
+P.blocktext {
+    
+   margin-left: 450px;
+    margin-right: auto;
+    font-size: 15px;
+    font-family: Trebuchet MS;
+}
+
+
+    
+    th{border: 2px solid black; }
+   
