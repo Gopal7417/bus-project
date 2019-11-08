@@ -2,6 +2,8 @@ package Happy;
 
 import java.util.List;
 
+import org.json.simple.JSONArray;
+
 
 public interface Dao {
 
@@ -11,4 +13,5 @@ public interface Dao {
 	public List<BusModel> getBustypes();
 	public List<BusModel> getStation();
 	public List<BusModel> getRegnos();
+	public JSONArray bustypes();
 }
