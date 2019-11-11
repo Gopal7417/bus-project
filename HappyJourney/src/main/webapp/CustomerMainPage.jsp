@@ -20,6 +20,53 @@
         background-color:#0CADA0;
     }
     </style>
+    
+    
+    
+    
+    		   <script type="text/javascript" 
+            src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+    </script>
+	<script type="text/javascript">
+      
+
+        $(document).ready(function () {
+			
+			
+   		 $('#gettrip').click(function(){
+   			var x=$("#bdate").val()  ;
+   			 alert(x);
+        $.ajax({
+                      type: "POST",
+                      data:{ 
+                    	  "from" : $("#fstation").val(),
+                    	  "to" : $("#tstation").val(),
+                    	 " date" :$("#bdate").val()                   	  
+                      },
+            			
+
+                      url: "some",
+                      dataType: 'json',
+                      success: function(data){
+                    	  alert(data);
+                    	  $.each(data, function (index,value) {
+                    	     alert(value.BSTY_TITLE);
+                    	        $('#bustype').append($('<option>').val(value.BSTY_TITLE).text(value.BSTY_TITLE)); 
+                    	    });
+                  }
+               });
+   		 });});
+        
+  
+
+</script>
+    
+    
+    
+    
+    
+    
+    
 </head>
 
      <body onload="loadstops()">
@@ -46,44 +93,61 @@
 
 
 <br><br><br>
-  <form:form action="/" modelAttribute="Trip" method="POST">
-  <form:label path="fstation" class="l" style="font-family: Trebuchet MS;">From Stations:&nbsp&nbsp&nbsp</form:label><br>
-                                  <form:select path="fstation" id="sFrom" name="sFrom" > 
+ 
+<form:form  modelAttribute="Trip">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<div align="center">
+<input type="button" style="background-color:#0CADA0;width:110px;height:40px; color:#FFFFFF;" value="FROM:" style="width: 150%; height: 150px;" style="text-size:100%;"/>
+<form:select path="fstation" id="fstation" name="fstation" > 
                                   <c:forEach items="${Trip.SList}" var="user" varStatus="status">
 
     <option value="${user.fstanid}">${user.fstation}</option>
     
     </c:forEach>
       </form:select>
-     <form:label  path="tstation" class="l" style="font-family: Trebuchet MS;">To Stations:&nbsp&nbsp&nbsp</form:label><br>
-                                <form:select  path="tstation" id="sTo" name="sTo" onchange="addRow()">
+
+
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<input type="button" style=" color:#FFFFFF; background-color:#0CADA0;width:110px;
+height:40px;" value="TO:">
+
+<form:select  path="tstation" id="tstation" name="tstation">
                                                                  <c:forEach items="${Trip.SList}" var="user" varStatus="status">
 
     <option value="${user.tstanid}">${user.tstation}</option>
     
     </c:forEach>
     </form:select>
-  </form:form>
-<!--
-&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="Button" style=" color:#FFFFFF; background-color:#0CADA0;width:110px;
+
+  
+  
+  
+
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<input type="Button" style=" color:#FFFFFF; background-color:#0CADA0;width:110px;
 height:40px;" value="DATE:">
-<input type="date" name="input" id="da"style="height:40px;"/>
+<form:input path="bdate" type="date" id="bdate" name="bdate" style="height:40px;"/>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 </div>
 
 <br><br>
 
 <div align="center">
-    <input type="submit" style="background-color:#0CADA0; color:#FFFFFF; width:110px;
-height:40px;" value="SEARCH" onclick="gettrips()"  align="center">
- <br><br>
+    <input type="button" id="gettrip" style="background-color:#0CADA0; color:#FFFFFF; width:110px;
+height:40px;" align="center" value="SEARCH"/>
+
+<br><br>
+
 <input type="button" style="background-color:#0CADA0; color:#FFFFFF; width:110px;
-height:40px;" value="TRIPS:" onchange="fare()">
+height:40px;" value="TRIPS:" onchange="fare()"/>
 
 
+<form:select path="bustype"  id="bustype" name="bustype" style="width:500px;
+height:40px;">
 
-<select id="s" style="width:500px;
-height:40px;"><option value=""></option></select>
+</form:select>
+</form:form>
+
 </div>
 <br><br>
     <div class="container" align="center">
@@ -129,8 +193,7 @@ height:40px;" value="Payment Type:">
 height:40px;">Book Ticket</button>
 </div>
 
-  -->
-
+  
 </body>
 
 
