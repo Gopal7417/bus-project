@@ -34,7 +34,8 @@
 			
 			
    		 $('#gettrip').click(function(){
-   			
+   			var x=$("#bdate").val()  ;
+   			 alert(x);
         $.ajax({
                       type: "POST",
                       data:{ 
@@ -47,7 +48,9 @@
                       url: "some",
                       dataType: 'json',
                       success: function(data){
+                    	  alert(data);
                     	  $.each(data, function (index,value) {
+                    	     alert(value.BSTY_TITLE);
                     	        $('#bustype').append($('<option>').val(value.BSTY_TITLE).text(value.BSTY_TITLE)); 
                     	    });
                   }
@@ -200,7 +203,7 @@ height:40px;">Book Ticket</button>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script>
 
 
-
+<!-- User Defined Script Start  
 
 <script>  
 
@@ -411,7 +414,20 @@ function book()
 
 </script>
 
-
+<div style="margin-left:168px;">
+<input type="button" style="background-color:#0CADA0; color:#FFFFFF; width:110px;
+height:40px;" value="Total Amount:">
+<input type="text" readOnly=true id="fare">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="button" style="background-color:#0CADA0; color:#FFFFFF; width:110px;
+height:40px;" value="Payment Type:">
+<select name="mode" id="mode"><option>UPI</option><option>PAYTM</option><option>DEBIT CARD</option><option>NET BANKING</option></select>
+</div>
+<br>
+<div align="center">
+<button  align="center" class="btn btn-success book_ticket" style="background-color:#0CADA0;width:110px;
+height:40px;">Book Ticket</button>
+</div>
 
  -->
 

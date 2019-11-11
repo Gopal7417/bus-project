@@ -156,10 +156,14 @@ String qry = "select password from admindetails where userid=?";
 		    });
 		    return buses;
 	}
+<<<<<<< master
 <<<<<<< HEAD
 	
 	
+=======
+>>>>>>> 63dc19b mng
 	public JSONArray names() {
+<<<<<<< master
 		String sql = "select bus_regno,stan_time,bsty_title,bsty_desc,trips_id from bustypes me,\r\n" + 
 				" (select bus_bsty_id,stan_time,trips_id,bus_regno from\r\n" + 
 				" (select stan_time,trip_bus_ID,trips_id from\r\n" + 
@@ -177,6 +181,10 @@ public JSONArray bustypes(String type) {
 		
 		JSONArray stations = template.query(sql1,new ResultSetExtractor<JSONArray>(){
 >>>>>>> branch 'master' of https://github.com/Gopal7417/bus-project
+=======
+		String sql = "select * from ";
+		JSONArray stations = template.query(sql,new ResultSetExtractor<JSONArray>(){
+>>>>>>> 63dc19b mng
 	         
 	         public JSONArray extractData(ResultSet rs) throws SQLException, DataAccessException {
 	        	 JSONArray json = new JSONArray();
@@ -194,13 +202,16 @@ public JSONArray bustypes(String type) {
 	                
 
 	             }
+	             
 	             return json;
 	   }
 
 });
-	
 		
-return buses;
+		
+		
+		
+return stations;
 	}
 
 	
