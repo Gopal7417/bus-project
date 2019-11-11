@@ -156,6 +156,7 @@ String qry = "select password from admindetails where userid=?";
 		    });
 		    return buses;
 	}
+<<<<<<< HEAD
 	
 	
 	public JSONArray names() {
@@ -167,6 +168,15 @@ String qry = "select password from admindetails where userid=?";
 				" (select trip_id,trip_bus_id from trips where trip_date=to_date('10-9-19')) p where p.trip_id=ab.trips_id ) bd ,\r\n" + 
 				" ( select bus_id,bus_bsty_id,bus_regno from buses) where bus_id= trip_bus_id)la  where la.bus_bsty_id=me.bsty_id";
 		JSONArray buses = template.query(sql,new ResultSetExtractor<JSONArray>(){
+=======
+public JSONArray bustypes(String type) {
+		
+		
+		String sql1 = "select bus_regno from buses where bus_bsty_id ='"+type+"'";
+		
+		
+		JSONArray stations = template.query(sql1,new ResultSetExtractor<JSONArray>(){
+>>>>>>> branch 'master' of https://github.com/Gopal7417/bus-project
 	         
 	         public JSONArray extractData(ResultSet rs) throws SQLException, DataAccessException {
 	        	 JSONArray json = new JSONArray();

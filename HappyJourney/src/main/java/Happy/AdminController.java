@@ -1,15 +1,18 @@
 package Happy;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.simple.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -78,5 +81,16 @@ public class AdminController {
 	    mav.addObject("Trip",b);
 
 	    return mav;
+	  }
+
+	  @RequestMapping(value = "/some")
+	  @ResponseBody
+	  public void helloWorld1(HttpServletRequest request,HttpServletResponse response) throws IOException  {  
+		  String tt=request.getParameter("b"); 
+		  System.out.println(tt);
+		  
+		    JSONArray jsonArray = rgDAO.bustypes(tt); 
+		    response.getWriter().println(jsonArray);
+
 	  }
 }

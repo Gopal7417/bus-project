@@ -13,5 +13,9 @@ public interface Dao {
 	public List<BusModel> getBustypes();
 	public List<BusModel> getStation();
 	public List<BusModel> getRegnos();
+<<<<<<< HEAD
 	public JSONArray names();
+=======
+	public JSONArray bustypes(String type);
+>>>>>>> branch 'master' of https://github.com/Gopal7417/bus-project
 }

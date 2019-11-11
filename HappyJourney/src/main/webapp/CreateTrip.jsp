@@ -6,9 +6,33 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <script type="text/javascript" src="amin.js">
+         <script type="text/javascript" 
+            src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+    </script>
+	<script type="text/javascript">
+      
 
-        </script>
+        $(document).ready(function () {
+			
+   		 $('#bustype').change(function(){
+        $.ajax({
+                      type: "POST",
+                      data:{ "b": $("#bustype").val()},
+                      url: "some",
+                      dataType: 'json',
+                      success: function(data){
+                    	
+                    	  $.each(data, function (index, value) {
+                    	     
+                    	        $('#regno').append($('<option>').val(value.BUS_REGNO).text(value.BUS_REGNO)); 
+                    	    });
+                  }
+               });
+   		 });});
+        
+  
+
+</script>
 
 
 
@@ -68,7 +92,7 @@
                             <td>
                                 <form:label path="regno" class="l" style="font-family: Trebuchet MS;">Bus Type:&nbsp&nbsp&nbsp</form:label><br>
 
-                                <form:select path="regno" id ="sBname"  name="sBname" style="width:250px;">
+                                <form:select path="regno"  style="width:250px;">
                                 </form:select> 
 
 
