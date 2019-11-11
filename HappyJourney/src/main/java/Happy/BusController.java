@@ -87,7 +87,7 @@ public class BusController {
 	    return mav;
 	  }
 	  
-	  @RequestMapping(value = "/", method = RequestMethod.GET)
+	  @RequestMapping(value = "/MainLogin", method = RequestMethod.GET)
 	  public ModelAndView userLogin(HttpServletRequest request, HttpServletResponse response) {
 		  
 	    ModelAndView mav = new ModelAndView("MainLogin");

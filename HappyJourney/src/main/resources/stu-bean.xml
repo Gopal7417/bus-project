@@ -23,7 +23,7 @@
 
 <property value="system" name="username"/>
 
-<property value="123456" name="password"/>
+<property value="asdf424" name="password"/>
 
 </bean>
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">

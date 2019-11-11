@@ -156,9 +156,17 @@ String qry = "select password from admindetails where userid=?";
 		    });
 		    return buses;
 	}
+	
+	
 	public JSONArray names() {
-		String sql = "select * from ";
-		JSONArray stations = template.query(sql,new ResultSetExtractor<JSONArray>(){
+		String sql = "select bus_regno,stan_time,bsty_title,bsty_desc,trips_id from bustypes me,\r\n" + 
+				" (select bus_bsty_id,stan_time,trips_id,bus_regno from\r\n" + 
+				" (select stan_time,trip_bus_ID,trips_id from\r\n" + 
+				" ( select a.trips_id,stan_time from (select trips_id,stan_time from tripstations where STAN_ID='VSKP') a,\r\n" + 
+				" (select trips_id from tripstations where STAN_ID ='HYD') b where a.trips_id=b.trips_id ) ab ,\r\n" + 
+				" (select trip_id,trip_bus_id from trips where trip_date=to_date('10-9-19')) p where p.trip_id=ab.trips_id ) bd ,\r\n" + 
+				" ( select bus_id,bus_bsty_id,bus_regno from buses) where bus_id= trip_bus_id)la  where la.bus_bsty_id=me.bsty_id";
+		JSONArray buses = template.query(sql,new ResultSetExtractor<JSONArray>(){
 	         
 	         public JSONArray extractData(ResultSet rs) throws SQLException, DataAccessException {
 	        	 JSONArray json = new JSONArray();
@@ -176,16 +184,13 @@ String qry = "select password from admindetails where userid=?";
 	                
 
 	             }
-	             
 	             return json;
 	   }
 
 });
+	
 		
-		
-		
-		
-return stations;
+return buses;
 	}
 
 	

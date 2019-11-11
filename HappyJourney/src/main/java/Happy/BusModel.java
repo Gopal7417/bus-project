@@ -1,5 +1,6 @@
 package Happy;
 
+import java.util.Date;
 import java.util.List;
 
 public class BusModel {
@@ -11,8 +12,16 @@ public class BusModel {
 	private String tstation;
 	private int tripid;
 	private String fstanid;
+	public Date getBdate() {
+		return bdate;
+	}
+	public void setBdate(Date bdate) {
+		this.bdate = bdate;
+	}
 	private String tstanid;
+	private Date bdate;
 
+	
 	public String getFstanid() {
 		return fstanid;
 	}
